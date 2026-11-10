@@ -17,6 +17,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# Private source résumé; only publish a reviewed, sanitized PDF.
+Gunasekaran_Shanmathi_Resume.pdf
+
 # macOS-specific files
 .DS_Store
 

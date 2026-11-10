@@ -1,0 +1,367 @@
+---
+interface Section {
+	heading: string;
+	paragraphs: string[];
+	points?: string[];
+}
+
+interface Props {
+	company: string;
+	category: string;
+	title: string;
+	role: string;
+	dates: string;
+	summary: string;
+	diagramTitle: string;
+	diagramDescription: string;
+	steps: string[];
+	sections: Section[];
+}
+
+const { company, category, title, role, dates, summary, diagramTitle, diagramDescription, steps, sections } =
+	Astro.props;
+---
+
+<main id="main-content" class="case-page">
+	<div class="case-wrap">
+		<a class="back-link" href="/#work"><span aria-hidden="true">←</span> Back to selected work</a>
+		<section class="case-hero" aria-labelledby="case-title">
+			<div class="case-kicker"><span>{company}</span> / {category}</div>
+			<h1 id="case-title">{title}</h1>
+			<p class="case-summary">{summary}</p>
+			<div class="case-meta">
+				<div><span>Role</span><p>{role}</p></div>
+				<div><span>Dates</span><p>{dates}</p></div>
+			</div>
+		</section>
+
+		<figure class="case-diagram" role="img" aria-label={diagramDescription}>
+			<figcaption>
+				<span>CONCEPTUAL SYSTEM VIEW</span>
+				<span>{diagramTitle}</span>
+			</figcaption>
+			<div class="diagram-flow">
+				{steps.map((step, index) => (
+					<>
+						<div class="diagram-step">
+							<span>0{index + 1}</span>
+							<strong>{step}</strong>
+						</div>
+						{index < steps.length - 1 && <span class="diagram-arrow" aria-hidden="true">→</span>}
+					</>
+				))}
+			</div>
+			<p class="diagram-caption">Conceptual diagram; implementation details are simplified for clarity.</p>
+		</figure>
+
+		<div class="case-content">
+			{sections.map((section, index) => (
+				<section class="case-section">
+					<div class="section-number">0{index + 1}</div>
+					<div>
+						<h2>{section.heading}</h2>
+						{section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+						{section.points && (
+							<ul>
+								{section.points.map((point) => <li>{point}</li>)}
+							</ul>
+						)}
+					</div>
+				</section>
+			))}
+		</div>
+		<a class="bottom-back-link" href="/#work">← Back to selected work</a>
+	</div>
+</main>
+
+<style>
+	.case-page {
+		padding: 43px 0 105px;
+	}
+
+	.case-wrap {
+		width: min(940px, calc(100% - 96px));
+		margin-inline: auto;
+	}
+
+	.back-link,
+	.bottom-back-link {
+		color: var(--burgundy);
+		font-size: 0.7rem;
+		text-decoration: none;
+	}
+
+	.back-link span {
+		padding-right: 7px;
+	}
+
+	.case-hero {
+		max-width: 790px;
+		padding: 80px 0 48px;
+	}
+
+	.case-kicker {
+		margin-bottom: 22px;
+		color: var(--cacao);
+		font-size: 0.59rem;
+		letter-spacing: 0.11em;
+		text-transform: uppercase;
+	}
+
+	.case-kicker span {
+		color: var(--burgundy);
+	}
+
+	h1 {
+		max-width: 820px;
+		margin: 0;
+		font-family: var(--sans);
+		font-size: clamp(2.5rem, 5vw, 4.2rem);
+		font-weight: 500;
+		line-height: 1.08;
+		letter-spacing: -0.045em;
+	}
+
+	.case-summary {
+		max-width: 630px;
+		margin: 24px 0 30px;
+		color: var(--cacao);
+		font-size: 0.94rem;
+		line-height: 1.8;
+	}
+
+	.case-meta {
+		display: flex;
+		gap: 80px;
+		padding-top: 17px;
+		border-top: 1px solid var(--khaki);
+	}
+
+	.case-meta span {
+		color: #8a7f75;
+		font-size: 0.52rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	.case-meta p {
+		margin: 7px 0 0;
+		color: var(--leather);
+		font-size: 0.69rem;
+	}
+
+	.case-diagram {
+		margin: 0 0 76px;
+		padding: 24px 28px 17px;
+		background: #eeeae3;
+	}
+
+	.case-diagram figcaption {
+		display: flex;
+		justify-content: space-between;
+		gap: 15px;
+		padding-bottom: 14px;
+		border-bottom: 1px solid #d5cec2;
+		color: var(--cacao);
+		font-size: 0.52rem;
+		letter-spacing: 0.09em;
+		text-transform: uppercase;
+	}
+
+	.case-diagram figcaption span:first-child {
+		color: var(--burgundy);
+	}
+
+	.diagram-flow {
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
+		gap: 14px;
+		padding: 38px 0;
+	}
+
+	.diagram-step {
+		display: flex;
+		flex: 1;
+		min-height: 84px;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 12px;
+		border: 1px solid #c9bfb1;
+	}
+
+	.diagram-step span {
+		color: var(--burgundy);
+		font-size: 0.48rem;
+		letter-spacing: 0.1em;
+	}
+
+	.diagram-step strong {
+		color: var(--leather);
+		font-family: var(--sans);
+		font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+		font-weight: 500;
+		line-height: 1.2;
+	}
+
+	.diagram-arrow {
+		align-self: center;
+		color: var(--burgundy);
+	}
+
+	.diagram-caption {
+		margin: 0;
+		padding-top: 13px;
+		border-top: 1px solid #d5cec2;
+		color: #82776e;
+		font-size: 0.54rem;
+	}
+
+	.case-content {
+		max-width: 750px;
+		margin-inline: auto;
+	}
+
+	.case-section {
+		display: grid;
+		grid-template-columns: 58px 1fr;
+		gap: 23px;
+		padding: 27px 0 33px;
+		border-top: 1px solid var(--khaki);
+	}
+
+	.section-number {
+		padding-top: 8px;
+		color: var(--burgundy);
+		font-size: 0.56rem;
+		letter-spacing: 0.1em;
+	}
+
+	h2 {
+		margin: 0 0 13px;
+		font-family: var(--sans);
+		font-size: 1.65rem;
+		font-weight: 500;
+		letter-spacing: -0.035em;
+	}
+
+	.case-section p,
+	.case-section li {
+		color: var(--cacao);
+		font-size: 0.78rem;
+		line-height: 1.85;
+	}
+
+	.case-section p {
+		margin: 0 0 12px;
+	}
+
+	.case-section p:last-child {
+		margin-bottom: 0;
+	}
+
+	.case-section ul {
+		display: grid;
+		gap: 5px;
+		margin: 13px 0 0;
+		padding-left: 20px;
+	}
+
+	.bottom-back-link {
+		display: inline-block;
+		margin: 37px 0 0 81px;
+		padding-bottom: 7px;
+		border-bottom: 1px solid #c5b7a8;
+	}
+
+	@media (max-width: 800px) {
+		.case-wrap {
+			width: min(100% - 48px, 650px);
+		}
+
+		.case-hero {
+			padding-top: 62px;
+		}
+
+		.case-diagram {
+			margin-bottom: 57px;
+			padding-inline: 18px;
+		}
+
+		.diagram-flow {
+			gap: 8px;
+		}
+
+		.diagram-step {
+			padding: 9px;
+		}
+	}
+
+	@media (max-width: 540px) {
+		.case-wrap {
+			width: calc(100% - 36px);
+		}
+
+		.case-page {
+			padding-top: 31px;
+			padding-bottom: 76px;
+		}
+
+		.case-hero {
+			padding: 54px 0 33px;
+		}
+
+		h1 {
+			font-size: clamp(2rem, 9vw, 3rem);
+		}
+
+		.case-summary {
+			font-size: 0.84rem;
+		}
+
+		.case-meta {
+			gap: 22px;
+		}
+
+		.case-diagram {
+			padding: 16px 12px 13px;
+		}
+
+		.case-diagram figcaption {
+			font-size: 0.43rem;
+		}
+
+		.diagram-flow {
+			flex-direction: column;
+			gap: 7px;
+			padding: 20px 0;
+		}
+
+		.diagram-step {
+			min-height: 57px;
+			gap: 7px;
+		}
+
+		.diagram-step strong {
+			font-size: 1.05rem;
+		}
+
+		.diagram-arrow {
+			align-self: center;
+			transform: rotate(90deg);
+		}
+
+		.case-section {
+			grid-template-columns: 27px 1fr;
+			gap: 10px;
+		}
+
+		h2 {
+			font-size: 1.4rem;
+		}
+
+		.bottom-back-link {
+			margin-left: 37px;
+		}
+	}
+</style>

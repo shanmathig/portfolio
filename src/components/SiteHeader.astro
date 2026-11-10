@@ -1,0 +1,88 @@
+---
+import { site } from '../config/site.mjs';
+
+interface Props {
+	isHome?: boolean;
+}
+
+const { isHome = false } = Astro.props;
+const workHref = isHome ? '#work' : '/#work';
+const educationHref = isHome ? '#education' : '/#education';
+const contactHref = isHome ? '#contact' : '/#contact';
+---
+
+<header class="site-header">
+	<nav aria-label="Main navigation">
+		<a href={workHref}>Work</a>
+		<a href={educationHref}>Education</a>
+		<a href={contactHref}>Contact</a>
+		{site.resumePath && (
+			<a class="resume-link" href={site.resumePath} target="_blank" rel="noreferrer">
+				Résumé <span aria-hidden="true">↗</span>
+			</a>
+		)}
+	</nav>
+</header>
+
+<style>
+	.site-header {
+		display: flex;
+		width: min(1120px, calc(100% - 96px));
+		height: 82px;
+		align-items: center;
+		justify-content: flex-end;
+		margin-inline: auto;
+		border-bottom: 1px solid var(--khaki);
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		gap: 36px;
+		font-size: 0.72rem;
+		letter-spacing: 0.04em;
+	}
+
+	nav a {
+		color: var(--leather);
+		text-decoration: none;
+		transition: color 180ms ease;
+	}
+
+	nav a:hover {
+		color: var(--burgundy);
+	}
+
+	nav .resume-link {
+		padding: 9px 13px;
+		border: 1px solid var(--burgundy);
+		color: var(--burgundy);
+	}
+
+	nav .resume-link:hover {
+		background: var(--burgundy);
+		color: var(--pearl);
+	}
+
+	@media (max-width: 800px) {
+		.site-header {
+			width: min(100% - 48px, 650px);
+		}
+	}
+
+	@media (max-width: 540px) {
+		.site-header {
+			width: calc(100% - 36px);
+			height: 68px;
+		}
+
+		nav {
+			gap: 13px;
+			font-size: 0.62rem;
+		}
+
+		nav .resume-link {
+			padding: 7px 9px;
+		}
+	}
+</style>

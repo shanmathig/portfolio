@@ -1,0 +1,154 @@
+---
+import { site } from '../config/site.mjs';
+---
+
+<footer id="contact">
+	<section class="contact-section" aria-labelledby="contact-title">
+		<div class="contact-inner">
+			<p class="eyebrow">Contact</p>
+			<h2 id="contact-title">Let’s connect.</h2>
+			<p class="contact-intro">
+				For software engineering opportunities and technical conversations, reach me by email or on LinkedIn.
+			</p>
+			<div class="contact-links" aria-label="Contact links">
+				<a href={site.links.emailCompose} target="_blank" rel="noreferrer">Email <span aria-hidden="true">↗</span></a>
+				<a href={site.links.linkedin} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+				<a href={site.links.github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+			</div>
+			<p class="mail-fallback">
+				Prefer your default mail app? <a href={site.links.email}>Compose an email</a>.
+			</p>
+		</div>
+	</section>
+	<div class="footer-base">
+		<div class="footer-base-inner">
+			<div class="footer-signoff">
+				<span class="signature" aria-label="Shanmathi">Shanmathi</span>
+				<span>© 2026 Shanmathi Gunasekaran</span>
+			</div>
+			<a href="/#top">Back to top ↑</a>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.contact-section {
+		padding: 76px 0 81px;
+		background: #f2efe9;
+	}
+
+	.contact-inner,
+	.footer-base-inner {
+		width: min(1120px, calc(100% - 96px));
+		margin-inline: auto;
+	}
+
+	.eyebrow {
+		margin: 0 0 12px;
+		color: var(--burgundy);
+		font-size: 0.61rem;
+		font-weight: 500;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		margin: 0;
+		font-family: var(--serif);
+		font-size: clamp(3.2rem, 6vw, 5.2rem);
+		font-weight: 400;
+		line-height: 1;
+		letter-spacing: -0.06em;
+	}
+
+	.contact-intro {
+		max-width: 500px;
+		margin: 16px 0 22px;
+		color: var(--cacao);
+		font-size: 0.76rem;
+		line-height: 1.8;
+	}
+
+	.contact-links {
+		display: flex;
+		gap: 25px;
+	}
+
+	.contact-links a {
+		padding-bottom: 6px;
+		border-bottom: 1px solid #c4b8aa;
+		color: var(--burgundy);
+		font-size: 0.7rem;
+		text-decoration: none;
+	}
+
+	.contact-links a span {
+		padding-left: 7px;
+	}
+
+	.mail-fallback {
+		margin: 16px 0 0;
+		color: #776d65;
+		font-size: 0.62rem;
+	}
+
+	.mail-fallback a {
+		color: var(--burgundy);
+		text-underline-offset: 3px;
+	}
+
+	.footer-base {
+		padding-block: 18px;
+		background: var(--leather);
+		color: #bfb6af;
+		font-size: 0.55rem;
+	}
+
+	.footer-base-inner {
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+	}
+
+	.footer-signoff {
+		display: flex;
+		align-items: end;
+		gap: 20px;
+	}
+
+	.signature {
+		color: #d7b6ac;
+		font-family: 'Caveat', cursive;
+		font-size: 1.75rem;
+		line-height: 1;
+	}
+
+	.footer-base a {
+		color: #d7b6ac;
+		text-decoration: none;
+	}
+
+	@media (max-width: 800px) {
+		.contact-inner,
+		.footer-base-inner {
+			width: min(100% - 48px, 650px);
+		}
+	}
+
+	@media (max-width: 540px) {
+		.contact-section {
+			padding-block: 62px;
+		}
+
+		.contact-inner,
+		.footer-base-inner {
+			width: calc(100% - 36px);
+		}
+
+		.footer-signoff {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 7px;
+		}
+	}
+</style>
