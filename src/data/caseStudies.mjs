@@ -3,44 +3,32 @@ export const caseStudies = [
 		slug: 'uber-experiment-analysis',
 		company: 'Uber',
 		category: 'Data tooling · Applied AI',
-		title: 'Self-serve experiment analysis at Uber',
+		title: 'Self-serve experiment analysis for Uber’s Earner Intelligence Platform',
 		role: 'Software Engineering Intern, Earner Intelligence Platform',
 		dates: 'May–Aug 2026',
 		summary:
-			'I built a Python and LangChain agent that helps product managers and scientists explore A/B experiment results by driver and courier traits.',
-		diagramTitle: 'A grounded path from question to report',
+			'I built a self-serve analysis assistant to help teams explore experiment results.',
+		diagramTitle: 'From question to experiment insight',
 		diagramDescription:
-			'Conceptual flow: a natural-language question is grounded with retrieved schema and business context before SQL is generated, then results become a report.',
-		steps: ['Question', 'Schema + context', 'Generated SQL', 'Filtered report'],
+			'High-level conceptual flow from a question to an experiment reporting experience; implementation details are omitted.',
+		steps: ['Question', 'Analysis', 'Results', 'Report'],
 		sections: [
 			{
 				heading: 'The problem',
 				paragraphs: [
-					'Understanding experiment results by driver and courier traits depended on a manual workflow across teams. Product managers and scientists needed a faster way to ask focused questions and get useful, trustworthy slices of experiment data.',
+					'Understanding experiment results across different segments relied on a manual, cross-team workflow. Teams needed a more efficient way to explore experiment data and answer focused questions.',
 				],
 			},
 			{
 				heading: 'What I owned',
 				paragraphs: [
-					'I built a Python agent with LangChain to make experiment analysis more self-serve. The experience supports report filtering and sorting, AI-generated summaries, and conversational follow-up questions.',
-				],
-			},
-			{
-				heading: 'The technical approach',
-				paragraphs: [
-					'The key design choice was to retrieve relevant schema metadata and business context before generating SQL. Grounding the model in the available data gives it a concrete vocabulary for the query instead of asking it to guess table and field names.',
-					'The resulting query feeds a report that people can filter and sort. A summary and follow-up conversation help users move from a broad question to a more specific view of the experiment.',
-				],
-				points: [
-					'Retrieve schema and business context first.',
-					'Generate a query against the available experiment data.',
-					'Present results in a filterable, sortable report with summaries and follow-ups.',
+					'I built a Python- and LangChain-based assistant to make experiment analysis more self-serve, connecting natural-language questions to relevant analysis and a reporting experience. It supported filtering, sorting, generated summaries, and conversational follow-ups.',
 				],
 			},
 			{
 				heading: 'What changed',
 				paragraphs: [
-					'The workflow moved toward self-serve reporting: product managers and scientists could explore experiment segments without relying on the same manual, cross-team handoff for every question.',
+					'The workflow made experiment reporting more self-serve, reducing reliance on manual handoffs for routine analysis.',
 				],
 			},
 		],
@@ -49,43 +37,32 @@ export const caseStudies = [
 		slug: 'bedrock-guardrails',
 		company: 'AWS',
 		category: 'Cloud infrastructure · Automation',
-		title: 'Automating endpoint throttling for Amazon Bedrock Guardrails',
+		title: 'Automating capacity management for Amazon Bedrock',
 		role: 'AI/ML Software Development Intern',
 		dates: 'May–Aug 2025',
 		summary:
-			'I built a backend system to automate throttling adjustments for SageMaker endpoints hosting Guardrails models.',
-		diagramTitle: 'Automated endpoint capacity updates',
+			'I built backend automation to manage capacity for hosted ML services.',
+		diagramTitle: 'Automated service-capacity updates',
 		diagramDescription:
-			'Conceptual component view: AWS event and queue services connect a Java Lambda using SageMaker APIs to endpoint limit updates, with CloudWatch monitoring.',
-		steps: ['EventBridge', 'SQS', 'Java Lambda + SageMaker APIs', 'Endpoint limits'],
+			'High-level conceptual flow for automated service-capacity updates and monitoring; implementation details are omitted.',
+		steps: ['Capacity signal', 'Queued work', 'Automated update', 'Monitoring'],
 		sections: [
 			{
 				heading: 'The problem',
 				paragraphs: [
-					'Adjusting throttling limits for SageMaker endpoints hosting Guardrails models was a manual, multi-day process. The work required a backend path that could calculate and apply appropriate limit changes automatically.',
+					'Adjusting capacity for hosted ML services involved a manual process. The work called for backend automation to handle updates more efficiently.',
 				],
 			},
 			{
 				heading: 'What I owned',
 				paragraphs: [
-					'I built the backend automation, including a Java Lambda that uses SageMaker APIs to compute endpoint throttling limits. I also used TypeScript and AWS CDK to define the supporting infrastructure.',
-				],
-			},
-			{
-				heading: 'The technical approach',
-				paragraphs: [
-					'The system uses AWS building blocks including EventBridge, SQS, Lambda, SageMaker, and CloudWatch. At a high level, event and queue services support the automated work, the Lambda calculates limit changes through SageMaker APIs, and CloudWatch provides operational visibility.',
-				],
-				points: [
-					'Java Lambda performs the throttling-limit calculation with SageMaker APIs.',
-					'TypeScript and AWS CDK define the infrastructure.',
-					'EventBridge, SQS, and CloudWatch support orchestration and monitoring.',
+					'I built Java-based backend automation to adjust service capacity and used TypeScript infrastructure-as-code to define supporting cloud resources. The high-level workflow included event processing and operational monitoring.',
 				],
 			},
 			{
 				heading: 'What changed',
 				paragraphs: [
-					'A process that had taken multiple days of manual coordination became an automated endpoint update workflow.',
+					'A manual capacity-management process became an automated update workflow.',
 				],
 			},
 		],
