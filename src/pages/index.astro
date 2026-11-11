@@ -18,7 +18,7 @@ import Layout from '../layouts/Layout.astro';
 						I’m a software engineer interested in backend systems, distributed systems, and reliable ML infrastructure.
 					</p>
 					<div class="hero-actions">
-						<a class="button button-dark" href="#work">Selected <em>work</em> <span aria-hidden="true">↓</span></a>
+						<a class="button button-dark" href="#work">Selected work <span aria-hidden="true">↓</span></a>
 						<a class="text-link" href={site.links.github} target="_blank" rel="noreferrer">
 							GitHub <span aria-hidden="true">↗</span>
 						</a>
@@ -33,9 +33,6 @@ import Layout from '../layouts/Layout.astro';
 					<p class="eyebrow">Internship projects</p>
 					<h2 id="work-title">Selected work</h2>
 				</div>
-				<p class="section-intro">
-					Three projects in data tooling, cloud infrastructure, and applied AI.
-				</p>
 			</div>
 			<div class="project-list page-width">
 				{caseStudies.map((study, index) => (
@@ -57,7 +54,6 @@ import Layout from '../layouts/Layout.astro';
 
 		<section class="experience-section page-width" aria-labelledby="experience-title">
 			<div class="experience-heading">
-				<p class="eyebrow">Where I’ve contributed</p>
 				<h2 id="experience-title">Work experience</h2>
 			</div>
 			<div class="experience-list">
@@ -90,7 +86,7 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 				<div class="education-details">
 					<p>B.S./M.S. in Computer Science · Specialization in Artificial Intelligence</p>
-					<span>Expected May 2027</span>
+					<span>Graduation · May 2027</span>
 				</div>
 			</div>
 		</section>
@@ -293,14 +289,6 @@ import Layout from '../layouts/Layout.astro';
 		white-space: nowrap;
 	}
 
-	.section-intro {
-		width: 330px;
-		margin: 0 0 5px;
-		color: #d4cdc5;
-		font-size: 0.76rem;
-		line-height: 1.8;
-	}
-
 	.project-row {
 		padding: 40px 0;
 		border-top: 1px solid #514a46;
@@ -370,11 +358,6 @@ import Layout from '../layouts/Layout.astro';
 		max-width: 310px;
 		font-size: clamp(2.7rem, 4.5vw, 4rem);
 		line-height: 1.04;
-	}
-
-	.experience-heading .eyebrow {
-		max-width: 220px;
-		line-height: 1.7;
 	}
 
 	.experience-list {
@@ -578,11 +561,6 @@ import Layout from '../layouts/Layout.astro';
 		.section-heading h2 {
 			font-size: clamp(2.4rem, 10.5vw, 3.5rem);
 			white-space: normal;
-		}
-
-		.section-intro {
-			width: auto;
-			margin-top: 18px;
 		}
 
 		.project-label {

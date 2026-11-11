@@ -75,7 +75,6 @@ export const caseStudies = [
 				heading: 'The technical approach',
 				paragraphs: [
 					'The system uses AWS building blocks including EventBridge, SQS, Lambda, SageMaker, and CloudWatch. At a high level, event and queue services support the automated work, the Lambda calculates limit changes through SageMaker APIs, and CloudWatch provides operational visibility.',
-					'This overview intentionally keeps the event sequence and production configuration abstract.',
 				],
 				points: [
 					'Java Lambda performs the throttling-limit calculation with SageMaker APIs.',
@@ -120,8 +119,7 @@ export const caseStudies = [
 			{
 				heading: 'The technical approach',
 				paragraphs: [
-					'I designed the pipeline as two connected tasks: BERT identifies jargon in a transcript, then the RAG architecture retrieves relevant context to ground a plain-language explanation. I built the components that connect detection, retrieval, and generation.',
-					'A RAG-enhanced LLaMA approach was explored during the project; this description does not imply that a specific model was ultimately deployed.',
+					'Our team designed the pipeline as two connected tasks: BERT identifies jargon in a transcript, then our RAG architecture retrieves relevant context to ground a plain-language explanation. I built the components that connect detection, retrieval, and generation.',
 				],
 				points: [
 					'Transcribe a multidisciplinary discussion.',

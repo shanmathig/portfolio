@@ -15,9 +15,6 @@ import { site } from '../config/site.mjs';
 				<a href={site.links.linkedin} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
 				<a href={site.links.github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
 			</div>
-			<p class="mail-fallback">
-				Prefer your default mail app? <a href={site.links.email}>Compose an email</a>.
-			</p>
 		</div>
 	</section>
 	<div class="footer-base">
@@ -84,17 +81,6 @@ import { site } from '../config/site.mjs';
 
 	.contact-links a span {
 		padding-left: 7px;
-	}
-
-	.mail-fallback {
-		margin: 16px 0 0;
-		color: #776d65;
-		font-size: 0.62rem;
-	}
-
-	.mail-fallback a {
-		color: var(--burgundy);
-		text-underline-offset: 3px;
 	}
 
 	.footer-base {
