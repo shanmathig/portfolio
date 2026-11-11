@@ -9,8 +9,5 @@ export const site = {
 	links: {
 		github: 'https://github.com/shanmathig',
 		linkedin: 'https://www.linkedin.com/in/shanmathiguna/',
-		email: 'mailto:shanmathigunasekaran1@gmail.com',
-		emailCompose:
-			'https://mail.google.com/mail/?view=cm&to=shanmathigunasekaran1%40gmail.com',
 	},
 };
